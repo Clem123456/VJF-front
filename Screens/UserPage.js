@@ -4,8 +4,6 @@ import { StyleSheet, ScrollView } from 'react-native'
 import { Button, Text, Card, Overlay } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
 import { connect } from 'react-redux'
-import { Input } from 'react-native-elements/dist/input/Input'
-import MyCheckbox from '../Components/Checkbox'
 import DietRadios from '../Components/MyRadio'
 
 function UserPage(props) {
@@ -18,7 +16,7 @@ function UserPage(props) {
 		async function loadUser() {
 			try {
 				var rawResponse = await fetch(
-					`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/me/${token}`
+					`https://vitejaifaimclem.herokuapp.com/users/me/${token}`
 				)
 				var response = await rawResponse.json()
 				setUser(response.userInfo)
@@ -43,7 +41,7 @@ function UserPage(props) {
 					body: JSON.stringify(dataToSend),
 				}
 				const data = await fetch(
-					`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/update-diet`,
+					`https://vitejaifaimclem.herokuapp.com/users/update-diet`,
 					requestOptions
 				)
 				const result = await data.json()
@@ -66,7 +64,6 @@ function UserPage(props) {
 				style={{
 					alignSelf: 'center',
 					marginTop: 15,
-					textDecorationLine: 'underline',
 					color: '#FFC901',
 				}}
 			>

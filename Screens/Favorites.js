@@ -15,7 +15,7 @@ function Favorites(props) {
 	useEffect(() => {
 		async function loadFavorites() {
 			var rawResponse = await fetch(
-				`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/favorites/${token}`
+				`https://vitejaifaimclem.herokuapp.com/users/favorites/${token}`
 			)
 			var response = await rawResponse.json()
 			console.log('CLG de FAVORITE', response.favorites)
@@ -74,14 +74,14 @@ function Favorites(props) {
 		var favFilter = favData.filter(e => e._id !== meal_id)
 		setFavData(favFilter)
 		var rawResponse = await fetch(
-			`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/favorites/${token}/${meal_id}`,
+			`https://vitejaifaimclem.herokuapp.com/users/favorites/${token}/${meal_id}`,
 			{
 				method: 'DELETE',
 			}
 		)
 		var response = await rawResponse.json()
 
-		if (response.favorites.favorites.length == 0) {
+		if (response.favorites.length == 0) {
 			setFavExists(false)
 		}
 	}

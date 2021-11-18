@@ -15,7 +15,7 @@ const LastOrder = props => {
 		const fetchUser = async () => {
 			try {
 				const data = await fetch(
-					`https://vitejaifaim-master-i57witqbae0.herokuapp.com/orders/recap/${token}`
+					`https://vitejaifaimclem.herokuapp.com/orders/recap/${token}`
 				)
 				const lastOrder = await data.json()
 

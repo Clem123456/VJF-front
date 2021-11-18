@@ -14,7 +14,7 @@ function Plats(props) {
 		async function loadOrders() {
 
 			var rawResponse = await fetch(
-				`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/history/${token}`
+				`https://vitejaifaimclem.herokuapp.com/users/history/${token}`
 			)
 			var response = await rawResponse.json()
 

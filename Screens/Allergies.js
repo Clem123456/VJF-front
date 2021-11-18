@@ -13,7 +13,6 @@ function Allergies(props) {
 	const [allergies, setAllergies] = useState([])
 	const [allergyExist, setAllergyExist] = useState(false)
 	const [overlay, setOverlay] = useState(false)
-	const isFocused = useIsFocused()
 	const [newAllergies, setnewAllergies] = useState([])
 	const token = props.token
 	var allergiesRender
@@ -21,7 +20,7 @@ function Allergies(props) {
 	useEffect(() => {
 		async function loadAllergies() {
 			var rawResponse = await fetch(
-				`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/allergies/${token}`
+				`https://vitejaifaimclem.herokuapp.com/users/allergies/${token}`
 			)
 			var response = await rawResponse.json()
 
@@ -35,7 +34,7 @@ si ces conditions sont remplies allergyExist passe a true*/
 		}
 
 		loadAllergies()
-	}, [isFocused])
+	}, [])
 
 	useEffect(() => {
 		allergiesRender = newAllergies.map((allergy, i) => {
@@ -124,19 +123,17 @@ si ces conditions sont remplies allergyExist passe a true*/
 		setAllergies(allergyFilter)
 		props.removeAllergy(allergy)
 		var rawResponse = await fetch(
-			`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/delallergies/${token}/${allergy}`,
+			`https://vitejaifaimclem.herokuapp.com/users/delallergies/${token}/${allergy}`,
 
 			{
 				method: 'DELETE',
 			}
 		)
-
-		// var response = await rawResponse.json()
 	}
 
 	async function handleAllergies(boolean) {
 		setOverlay(boolean)
-		console.log('props', props.allergies)
+		// console.log('props', props.allergies)
 
 		const dataToUpdate = {
 			allergies: props.allergies,
@@ -147,7 +144,7 @@ si ces conditions sont remplies allergyExist passe a true*/
 			body: JSON.stringify(dataToUpdate),
 		}
 		const data = await fetch(
-			`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/update-me/${token}`,
+			`https://vitejaifaimclem.herokuapp.com/users/update-me/${token}`,
 			requestOptions
 		)
 		const result = await data.json()

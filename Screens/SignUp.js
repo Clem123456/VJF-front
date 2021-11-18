@@ -20,7 +20,7 @@ function SignUp(props) {
 	var handleSubmitSignup = async () => {
 		// send user's infos to back
 		const data = await fetch(
-			`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/sign-up`,
+			`https://vitejaifaimclem.herokuapp.com/users/sign-up`,
 			{
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

@@ -39,7 +39,7 @@ function Mood(props) {
 		addressComplete = numRue + ',' + ville + ',' + codePostal
 		props.addressHandle(addressComplete)
 		await fetch(
-			`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/update-useraddress/${token}`,
+			`https://vitejaifaimclem.herokuapp.com/users/update-useraddress/${token}`,
 			{
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -56,7 +56,7 @@ function Mood(props) {
 			if (!token)
 				setErrorMsg('Connectez-vous pour commandez votre repas surprise !')
 			const data = await fetch(
-				`https://vitejaifaim-master-i57witqbae0.herokuapp.com/orders/makeorderinfav/${token}`
+				`https://vitejaifaimclem.herokuapp.com/orders/makeorderinfav/${token}`
 			)
 			const formatedData = await data.json()
 
@@ -92,7 +92,7 @@ function Mood(props) {
 				body: JSON.stringify(dataToSend),
 			}
 			const data = await fetch(
-				`https://vitejaifaim-master-i57witqbae0.herokuapp.com/orders/recap/${token}`,
+				`https://vitejaifaimclem.herokuapp.com/orders/recap/${token}`,
 				requestOptions
 			)
 			const formatedData = await data.json()

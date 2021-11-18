@@ -16,7 +16,7 @@ function HeartFav(props) {
 			const token = props.token
 			const mealId = props.mealId
 			const data = await fetch(
-				`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/favorites`,
+				`https://vitejaifaimclem.herokuapp.com/users/favorites`,
 				{
 					method: 'POST',
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

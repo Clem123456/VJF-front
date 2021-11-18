@@ -10,7 +10,7 @@ const Address = props => {
 		const token = props.token
 		const fetchUser = async () => {
 			const data = await fetch(
-				`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/me/${token}`
+				`https://vitejaifaimclem.herokuapp.com/users/me/${token}`
 			)
 			const user = await data.json()
 			setAddress(user.userInfo.adresse[0])

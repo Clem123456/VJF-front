@@ -8,7 +8,6 @@ import {
 	SafeAreaView,
 } from 'react-native'
 import { Text, Input } from 'react-native-elements'
-import { connect } from 'react-redux'
 import SmallButton from './SmallButton'
 import { AntDesign } from '@expo/vector-icons'
 

@@ -21,11 +21,6 @@ function Livraison(props) {
 		}
 	}, [])
 
-	// Redirect to final page after the delivery process
-	//var finsihProcess = () => {
-	//	props.navigation.navigate('FinalPage', { screen: 'FinalPage' })
-	//}
-
 	// render order
 	var order = (
 		<View

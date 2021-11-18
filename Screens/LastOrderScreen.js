@@ -31,7 +31,7 @@ const LastOrderScreen = props => {
 		if (choice === 'good') {
 			try {
 				const data = await fetch(
-					`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/favorites`,
+					`https://vitejaifaimclem.herokuapp.com/users/favorites`,
 					{
 						method: 'POST',
 						headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -45,7 +45,7 @@ const LastOrderScreen = props => {
 		} else if (choice === 'bad') {
 			try {
 				const data = await fetch(
-					`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/blacklist/${token}`,
+					`https://vitejaifaimclem.herokuapp.com/users/blacklist/${token}`,
 					{
 						method: 'PUT',
 						headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

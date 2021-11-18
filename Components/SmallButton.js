@@ -39,7 +39,6 @@ function mapDispatchToProps(dispatch) {
 		removeDont: function (dont) {
 			dispatch({ type: 'REMOVE_DONT', dont: dont })
 		},
-
 	}
 }
 
@@ -48,5 +47,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SmallButton)
-
-//export default SmallButton

@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {
-    View,
-    StyleSheet,
-    ScrollView,
-    KeyboardAvoidingView,
-} from 'react-native'
+import { View, StyleSheet, ScrollView, KeyboardAvoidingView } from 'react-native'
 import { Text, Input, Button } from 'react-native-elements'
 import TopBar from '../Components/TopBar'
 import { connect } from 'react-redux'
@@ -26,7 +21,7 @@ function Donts(props) {
     useEffect(() => {
         async function loadDonts() {
 
-            var rawResponse = await fetch(`http:/vitejaifaim-master-i57witqbae0.herokuapp.com/users/myDonts/${token}`)
+            var rawResponse = await fetch(`https://vitejaifaimclem.herokuapp.com/users/myDonts/${token}`)
             var response = await rawResponse.json()
 
             setUserDonts(response.donts)
@@ -38,7 +33,7 @@ function Donts(props) {
 
         loadDonts()
 
-    });
+    }, []);
 
 
     if (dontExists) {
@@ -78,7 +73,7 @@ function Donts(props) {
 
             if (manualIngredient != '') {
                 const listDont = await fetch(
-                    `http:/vitejaifaim-master-i57witqbae0.herokuapp.com/users/adddonts/${token}`,
+                    `https://vitejaifaimclem.herokuapp.com/users/adddonts/${token}`,
                     {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -106,7 +101,7 @@ function Donts(props) {
             {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: `dont=${dont}`
+                // body: `dont=${dont}`
             }
         )
 

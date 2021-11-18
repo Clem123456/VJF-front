@@ -30,7 +30,7 @@ function Geoloc(props) {
 
 			addressComplete = props.address
 
-			await fetch(`https://vitejaifaim-master-i57witqbae0.herokuapp.com/users/update-useraddress/${token}`, {
+			await fetch(`https://vitejaifaimclem.herokuapp.com/users/update-useraddress/${token}`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: `address=${props.address}`,
