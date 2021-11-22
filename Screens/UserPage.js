@@ -9,7 +9,7 @@ import DietRadios from '../Components/MyRadio'
 function UserPage(props) {
 	const [user, setUser] = useState('')
 	const token = props.token
-	const [diet, setDiet] = useState('')
+
 	const [overlayVisible, setOverlayVisible] = useState(false)
 
 	useEffect(() => {
@@ -25,32 +25,32 @@ function UserPage(props) {
 			}
 		}
 		loadUser()
-	})
+	}, [props.diet])
 
-	useEffect(() => {
-		const updateDiet = async () => {
-			try {
-				const dataToSend = {
-					token: token,
-					diet: props.diet,
-				}
 
-				const requestOptions = {
-					method: 'PUT',
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify(dataToSend),
-				}
-				const data = await fetch(
-					`https://vitejaifaimclem.herokuapp.com/users/update-diet`,
-					requestOptions
-				)
-				const result = await data.json()
-			} catch (err) {
-				console.log(err)
+	const updateDiet = async () => {
+		try {
+			const dataToSend = {
+				token: token,
+				diet: props.diet,
 			}
+
+			const requestOptions = {
+				method: 'PUT',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(dataToSend),
+			}
+			const data = await fetch(
+				`https://vitejaifaimclem.herokuapp.com/users/update-diet`,
+				requestOptions
+			)
+			const result = await data.json()
+		} catch (err) {
+			console.log(err)
 		}
-		updateDiet()
-	})
+	}
+	updateDiet()
+
 
 	const handleDiet = () => {
 		setOverlayVisible(true)

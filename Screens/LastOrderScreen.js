@@ -53,7 +53,6 @@ const LastOrderScreen = props => {
 					}
 				)
 				const result = await data.json()
-				// console.log(result)
 			} catch (err) {
 				console.log(err.message)
 			}

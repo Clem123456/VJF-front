@@ -40,7 +40,6 @@ function SignIn(props) {
 			AsyncStorage.setItem('token', body.token)
 			// store token in redux
 			props.addToken(body.token)
-			props.addFirstName(body.user.firstName)
 			props.navigation.navigate('Mood', { screen: 'Mood' })
 		} else {
 			setErrorsSignin(body.error)
@@ -175,10 +174,7 @@ function mapDispatchToProps(dispatch) {
 	return {
 		addToken: function (token) {
 			dispatch({ type: 'addToken', token: token })
-		},
-		addFirstName: function (firstName) {
-			dispatch({ type: 'addFirstName', firstName: firstName })
-		},
+		}
 	}
 }
 

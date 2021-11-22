@@ -74,7 +74,6 @@ function Mood(props) {
 	}
 
 	const getTheSupriseMeal = async () => {
-		console.log('getTheSupriseMeal')
 		try {
 			const token = props.token
 			if (!token)
@@ -96,7 +95,6 @@ function Mood(props) {
 				requestOptions
 			)
 			const formatedData = await data.json()
-			// console.log('[MoodScreen] data fetched: ', formatedData)
 
 			if (formatedData) {
 				const { result, message, order } = formatedData

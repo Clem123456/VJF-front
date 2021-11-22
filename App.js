@@ -8,7 +8,6 @@ import donts from './reducers/donts'
 import allergies from './reducers/allergies'
 import budget from './reducers/budget'
 import mood from './reducers/mood'
-import firstName from './reducers/firstName'
 import order from './reducers/order'
 import coords from './reducers/coords'
 import address from './reducers/address'
@@ -39,7 +38,6 @@ const store = createStore(
 	combineReducers({
 		diet,
 		token,
-		firstName,
 		donts,
 		allergies,
 		budget,

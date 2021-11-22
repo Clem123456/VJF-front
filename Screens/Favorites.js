@@ -7,10 +7,10 @@ import { Ionicons } from '@expo/vector-icons'
 import { useIsFocused } from '@react-navigation/native'
 
 function Favorites(props) {
-	const [favData, setFavData] = useState([])
 	const token = props.token
-	const isFocused = useIsFocused()
+	const [favData, setFavData] = useState([])
 	const [FavExists, setFavExists] = useState(false)
+	const isFocused = useIsFocused()
 
 	useEffect(() => {
 		async function loadFavorites() {
@@ -18,7 +18,6 @@ function Favorites(props) {
 				`https://vitejaifaimclem.herokuapp.com/users/favorites/${token}`
 			)
 			var response = await rawResponse.json()
-			console.log('CLG de FAVORITE', response.favorites)
 			setFavData(response.favorites)
 
 			if (response.favorites.length > 0 && response.favorites[0] !== null) {

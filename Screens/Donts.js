@@ -4,17 +4,16 @@ import { Text, Input, Button } from 'react-native-elements'
 import TopBar from '../Components/TopBar'
 import { connect } from 'react-redux'
 import { AntDesign, Ionicons } from '@expo/vector-icons'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { useIsFocused } from '@react-navigation/native'
 
 function Donts(props) {
 
     const token = props.token
     const [userDonts, setUserDonts] = useState([])
-    const [dontsList, setDontsList] = useState([])
-    const [manualDonts, setManualDonts] = useState([])
     const [manualIngredient, setManualIngredient] = useState('')
     const [dontExists, setDontExists] = useState(false)
     const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
+    const isFocused = useIsFocused()
 
 
     //affichage des donts
@@ -33,7 +32,7 @@ function Donts(props) {
 
         loadDonts()
 
-    }, []);
+    }, [isFocused]);
 
 
     if (dontExists) {
@@ -61,7 +60,7 @@ function Donts(props) {
 
     const handleManualAdd = () => {
         setManualIngredient('')
-        setManualDonts(prevDonts => [...prevDonts, manualIngredient])
+        setUserDonts(prevDonts => [...prevDonts, manualIngredient])
         handleDonts()
     }
 
@@ -80,28 +79,25 @@ function Donts(props) {
                         body: `dont=${dont}`,
                     }
                 )
+                props.addDont(manualIngredient)
             }
-
         } catch (err) {
             console.log(err)
         }
     }
 
-    //suppression de donts ok
+    //suppression de donts
     async function handleDontDelete(dont) {
 
-        const token = props.token
-
-        var filterDonts = dontsList.filter((e) => (e !== dont))
-
-        setDontsList(filterDonts)
+        var filterDonts = userDonts.filter((e) => (e !== dont))
+        setUserDonts(filterDonts)
+        props.removeDont(dont)
 
         var rawResponse = await fetch(
             `http:/vitejaifaim-master-i57witqbae0.herokuapp.com/users/deletedonts/${token}/${dont}`,
             {
                 method: 'DELETE',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                // body: `dont=${dont}`
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             }
         )
 

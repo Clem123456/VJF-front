@@ -41,6 +41,8 @@ function Geoloc(props) {
 
 	}, [])
 
+
+
 	return <Text>{displayCurrentAddress}</Text>
 }
 
