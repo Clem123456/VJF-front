@@ -2,7 +2,6 @@ import React from 'react'
 import { StyleSheet, View, Image, ScrollView } from 'react-native'
 import { Text } from 'react-native-elements'
 import NextButton from '../Components/NextButton'
-import { connect } from 'react-redux'
 import Notification from '../Components/Notification'
 
 function FinalPage(props) {
@@ -13,15 +12,7 @@ function FinalPage(props) {
 				style={{ width: 200, height: 200, marginTop: 100 }}
 			/>
 
-			<Text
-				h1
-				style={{
-					textAlign: 'center',
-					color: '#ffffff',
-					marginTop: 50,
-					fontWeight: '300',
-				}}
-			>
+			<Text h1 style={{ textAlign: 'center', color: '#ffffff', marginTop: 50, fontWeight: '300', }}>
 				BON APPETIT
 			</Text>
 
@@ -48,9 +39,5 @@ const styles = StyleSheet.create({
 		backgroundColor: '#27292D',
 	},
 })
-//get token from store
-function mapStateToProps(state) {
-	return { token: state.token }
-}
 
-export default connect(mapStateToProps, null)(FinalPage)
+export default (FinalPage)

@@ -5,13 +5,13 @@ import { Text } from 'react-native-elements'
 import { useIsFocused } from '@react-navigation/native'
 
 const LastOrder = props => {
+	const token = props.token
 	const [meal, setMeal] = useState('')
 	const [restaurant, setRestaurant] = useState('')
 	const isFocused = useIsFocused()
 
 	useEffect(() => {
-		// Fetch data to get last order
-		const token = props.token
+		// Fetch data to get last order		
 		const fetchUser = async () => {
 			try {
 				const data = await fetch(
@@ -24,7 +24,6 @@ const LastOrder = props => {
 				} else {
 					props.setHasOrder(true)
 				}
-				//if (lastOrder) props.setHasOrder(true)
 
 				setMeal(lastOrder.mealName)
 				setRestaurant(lastOrder.restaurant)

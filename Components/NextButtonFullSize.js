@@ -15,7 +15,7 @@ const NextButtonFullSize = ({ title, onPress }) => {
 				style={{
 					display: 'flex',
 					flexDirection: 'row',
-					justifyContent: 'center',
+					justifyContent: 'center'
 				}}
 				onPress={onPress}
 			>
@@ -32,13 +32,12 @@ const styles = StyleSheet.create({
 	button: {
 		backgroundColor: '#F2A902',
 		borderRadius: 5,
-		width: 400,
-		// margin: 5,
+		width: 330,
 		paddingHorizontal: 10,
 		paddingVertical: 10,
 		textAlign: 'center',
-		alignSelf: 'flex-end',
-		marginRight: 10,
+		alignSelf: 'center',
+		marginBottom: 20
 	},
 	text: {
 		color: '#fff',

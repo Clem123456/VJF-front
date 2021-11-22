@@ -32,7 +32,7 @@ function Donts(props) {
 
         loadDonts()
 
-    }, [isFocused]);
+    }, []);
 
 
     if (dontExists) {
@@ -80,6 +80,7 @@ function Donts(props) {
                     }
                 )
                 props.addDont(manualIngredient)
+                setDontExists(true)
             }
         } catch (err) {
             console.log(err)

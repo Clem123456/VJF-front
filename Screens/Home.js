@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { Overlay } from 'react-native-elements'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-
 import TopBar from '../Components/TopBar'
 import Diet from '../Components/Diet'
 import Donts from '../Components/Donts'
@@ -12,8 +11,8 @@ import { connect } from 'react-redux'
 import MyCheckbox from '../Components/Checkbox'
 
 const Home = props => {
-	const [overlay, setOverlay] = useState(false)
 	const token = props.token
+	const [overlay, setOverlay] = useState(false)
 
 	const handleAllergies = allergy => {
 		setOverlay(false)
@@ -21,7 +20,6 @@ const Home = props => {
 
 	const handleSubmitFoodProfile = async () => {
 		try {
-			const token = props.token
 			if (!token) {
 				props.navigation.navigate('SignUp', {
 					screen: 'SignUp',
@@ -37,7 +35,7 @@ const Home = props => {
 			const requestOptions = {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(dataToUpdate),
+				body: JSON.stringify(dataToUpdate)
 			}
 			const data = await fetch(
 				`https://vitejaifaimclem.herokuapp.com/users/update-me/${token}`,
@@ -47,7 +45,9 @@ const Home = props => {
 			props.navigation.navigate('Mood', {
 				screen: 'Mood',
 			})
-		} catch (err) { }
+		} catch (err) {
+
+		}
 	}
 
 	return (

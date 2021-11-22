@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { ScrollView, Image, TouchableOpacity, View, StyleSheet } from 'react-native'
-import { Button, Text, Card } from 'react-native-elements'
+import { Button, Text } from 'react-native-elements'
 import TopBar from '../Components/TopBar'
 import { Ionicons } from '@expo/vector-icons'
 import { Overlay } from 'react-native-elements'
@@ -32,17 +32,10 @@ function Allergies(props) {
 				response.allergies.map((allergy) => {
 					props.addAllergy(allergy)
 				})
-
-				console.log('response.allergies->', response.allergies)
-
 			}
 		}
-
 		loadAllergies()
 	}, [isFocused])
-
-	console.log('props.allergies->', props.allergies)
-
 
 	if (allergyExist) {
 		allergiesRender = allergies.map((allergy, i) => {
@@ -64,7 +57,6 @@ function Allergies(props) {
 			</Text>
 		)
 	}
-
 
 	//ajout d'allergie
 	async function handleAllergies() {
@@ -97,19 +89,15 @@ function Allergies(props) {
 
 		var rawResponse = await fetch(
 			`https://vitejaifaimclem.herokuapp.com/users/delallergies/${token}/${allergy}`,
-
 			{
 				method: 'DELETE',
 			}
 		)
-
 		var response = await rawResponse.json()
-		console.log('response allergie suppression', response.allergies.allergies.length)
 
 		if (response.allergies.allergies.length == 0) {
 			setAllergyExist(false)
 		}
-
 	}
 
 	return (

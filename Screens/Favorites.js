@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { ScrollView, StyleSheet, View } from 'react-native'
-import { Button, Text, Card } from 'react-native-elements'
+import { Button, Text } from 'react-native-elements'
 import TopBar from '../Components/TopBar'
 import { Ionicons } from '@expo/vector-icons'
 import { useIsFocused } from '@react-navigation/native'
@@ -89,12 +89,7 @@ function Favorites(props) {
 		<View style={styles.container}>
 			<TopBar navigation={props.navigation} />
 			<ScrollView>
-				<Text
-					h2
-					style={{ color: '#F2A902', textAlign: 'center', marginTop: '4%' }}
-				>
-					Favoris
-				</Text>
+				<Text h2 style={{ color: '#F2A902', textAlign: 'center', marginTop: '4%' }}>Favoris</Text>
 				<ScrollView style={styles.userDonts}>{favList}</ScrollView>
 			</ScrollView>
 		</View>

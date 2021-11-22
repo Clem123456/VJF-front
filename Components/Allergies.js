@@ -4,8 +4,6 @@ import { Text, Button } from 'react-native-elements'
 
 
 const Allergies = props => {
-	const [allergies, setAllergies] = useState([])
-	// props.overlay props.setOverlay dispo
 
 	const handleAllergies = () => {
 		props.setOverlay(true)

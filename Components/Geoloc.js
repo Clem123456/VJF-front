@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import * as Location from 'expo-location'
 
 function Geoloc(props) {
-	const [displayCurrentAddress, setDisplayCurrentAddress] = useState('')
 	const token = props.token
+	const [displayCurrentAddress, setDisplayCurrentAddress] = useState('')
 	var addressComplete
 
 	useEffect(() => {
@@ -37,11 +37,7 @@ function Geoloc(props) {
 			})
 		}
 		askPermissions()
-
-
 	}, [])
-
-
 
 	return <Text>{displayCurrentAddress}</Text>
 }

@@ -5,8 +5,6 @@ import TopBar from '../Components/TopBar'
 import { useState, useEffect } from 'react'
 import LottieView from 'lottie-react-native'
 import CountDown from 'react-native-countdown-component'
-import { LogBox } from 'react-native';
-LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 function Livraison(props) {
 	const [start, setStart] = useState(true) //const use to start the delivery process

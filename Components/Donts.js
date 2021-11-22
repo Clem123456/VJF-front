@@ -1,12 +1,5 @@
 import React, { useState } from 'react'
-import {
-	View,
-	StyleSheet,
-	Image,
-	TouchableOpacity,
-	KeyboardAvoidingView,
-	SafeAreaView,
-} from 'react-native'
+import { View, StyleSheet, Image, TouchableOpacity, KeyboardAvoidingView, SafeAreaView } from 'react-native'
 import { Text, Input } from 'react-native-elements'
 import SmallButton from './SmallButton'
 import { AntDesign } from '@expo/vector-icons'

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { useIsFocused } from '@react-navigation/core'
 
 function HeartFav(props) {
-
+	const token = props.token
 	const [isFaved, setIsFaved] = useState(false)
 	const isFocused = useIsFocused()
 
@@ -20,17 +20,15 @@ function HeartFav(props) {
 
 	const updateUser = async () => {
 		try {
-			const token = props.token
 			const mealId = props.mealId
 			const data = await fetch(
 				`https://vitejaifaimclem.herokuapp.com/users/favorites`,
 				{
 					method: 'POST',
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-					body: `token=${token}&meal_id=${mealId}`,
+					body: `token=${token}&meal_id=${mealId}`
 				}
 			)
-			const result = await data.json()
 		} catch (err) {
 		}
 	}

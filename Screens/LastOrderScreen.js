@@ -1,18 +1,12 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import {
-	View,
-	StyleSheet,
-	Image,
-	KeyboardAvoidingView,
-	TouchableOpacity,
-} from 'react-native'
+import { View, StyleSheet, Image, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
 import { Text, Input, Overlay } from 'react-native-elements'
 import TopBar from '../Components/TopBar'
-import { MY_IP } from '@env'
 import LastOrder from '../Components/LastOrder'
 
 const LastOrderScreen = props => {
+	const token = props.token
 	const [overlay, setOverlay] = useState(false)
 	const [choice, setChoice] = useState('')
 	const [mealId, setMealId] = useState('')
@@ -27,7 +21,6 @@ const LastOrderScreen = props => {
 	}
 
 	const updateUser = async choice => {
-		const token = props.token
 		if (choice === 'good') {
 			try {
 				const data = await fetch(
@@ -38,7 +31,6 @@ const LastOrderScreen = props => {
 						body: `token=${token}&meal_id=${mealId}`,
 					}
 				)
-				const result = await data.json()
 			} catch (err) {
 				console.log(err.message)
 			}
@@ -52,7 +44,6 @@ const LastOrderScreen = props => {
 						body: `mealId=${mealId}`,
 					}
 				)
-				const result = await data.json()
 			} catch (err) {
 				console.log(err.message)
 			}
@@ -95,7 +86,6 @@ const LastOrderScreen = props => {
 								<Image
 									style={styles.tinyLogo}
 									source={require('../assets/thumbup.png')}
-									onPress={() => handleThumbClick('good')}
 								/>
 							</TouchableOpacity>
 						</View>
@@ -112,7 +102,7 @@ const LastOrderScreen = props => {
 			}
 			<Overlay
 				isVisible={overlay}
-				onBackdropPress={() => setOverlay(false)} // REMOVE FOR PRODUCTION
+				onBackdropPress={() => setOverlay(false)}
 				overlayStyle={{
 					width: '90%',
 					marginTop: 60,

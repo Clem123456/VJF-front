@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-	StyleSheet,
-	View,
-	Image,
-	ImageBackground,
-} from 'react-native'
+import { StyleSheet, View, Image, ImageBackground } from 'react-native'
 import { Text } from 'react-native-elements'
 import NextButton from '../Components/NextButton'
 import { connect } from 'react-redux'
@@ -12,8 +7,9 @@ import { useEffect } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 function FirstScreen(props) {
-	useEffect(() => {
 
+	// get token from local storage
+	useEffect(() => {
 		AsyncStorage.getItem('token', (error, value) => {
 			if (value) {
 				props.addToken(value)
@@ -90,7 +86,7 @@ const styles = StyleSheet.create({
 	},
 })
 
-//get token from store
+//send token to store
 function mapDispatchToProps(dispatch) {
 	return {
 		addToken: function (token) {
@@ -99,6 +95,7 @@ function mapDispatchToProps(dispatch) {
 	}
 }
 
+//get token from store
 function mapStateToProps(state) {
 	return { token: state.token }
 }

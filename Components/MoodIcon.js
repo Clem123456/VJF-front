@@ -1,11 +1,5 @@
 import React, { useState } from 'react'
-import {
-	StyleSheet,
-	TouchableOpacity,
-	ImageBackground,
-	View,
-	Text,
-} from 'react-native'
+import { StyleSheet, TouchableOpacity, ImageBackground, View, Text } from 'react-native'
 import { connect } from 'react-redux'
 
 const MoodIcon = props => {

@@ -3,16 +3,17 @@ import { View, StyleSheet, ScrollView } from 'react-native'
 import { Button, Text, Input, Overlay } from 'react-native-elements'
 import NumericInput from 'react-native-numeric-input'
 import TopBar from '../Components/TopBar'
+import Geoloc from '../Components/Geoloc'
+import MoodIcon from '../Components/MoodIcon'
 import NextButton from '../Components/NextButton'
+import moodsItems from '../data/moods'
 import NextButtonFullSize from '../Components/NextButtonFullSize'
 import { connect } from 'react-redux'
-import Geoloc from '../Components/Geoloc'
 import { Ionicons } from '@expo/vector-icons'
-import MoodIcon from '../Components/MoodIcon'
-import moodsItems from '../data/moods'
 import { CheckBox } from 'react-native-elements'
 
 function Mood(props) {
+	const token = props.token
 	const [overlay, setOverlay] = useState(false)
 	const [addressIsChanged, setAddressIsChanged] = useState(false)
 	const [numRue, setNumRue] = useState('')
@@ -35,7 +36,6 @@ function Mood(props) {
 
 	const updateAdress = async () => {
 		var addressComplete
-		const token = props.token
 		addressComplete = numRue + ',' + ville + ',' + codePostal
 		props.addressHandle(addressComplete)
 		await fetch(
@@ -50,9 +50,7 @@ function Mood(props) {
 		setAddressIsChanged(true)
 	}
 	const getFromFavorites = async () => {
-
 		try {
-			const token = props.token
 			if (!token)
 				setErrorMsg('Connectez-vous pour commandez votre repas surprise !')
 			const data = await fetch(
@@ -75,7 +73,6 @@ function Mood(props) {
 
 	const getTheSupriseMeal = async () => {
 		try {
-			const token = props.token
 			if (!token)
 				setErrorMsg('Connectez-vous pour commandez votre repas surprise !')
 			const dataToSend = {
@@ -198,10 +195,10 @@ function Mood(props) {
 								marginTop: 15,
 								marginBottom: 15,
 								flexDirection: 'row',
-								width: '90%',
+								width: '100%',
 								justifyContent: 'center',
 								padding: 0,
-								marginLeft: 2,
+								marginLeft: 10,
 							}}
 						>
 							<Button
@@ -214,7 +211,7 @@ function Mood(props) {
 									backgroundColor:
 										selectedBudget === '5-10' ? '#000000' : '#FFC901',
 									borderRadius: 5,
-									width: 80,
+									width: 70,
 									marginRight: 10,
 								}}
 							/>
@@ -228,7 +225,7 @@ function Mood(props) {
 									backgroundColor:
 										selectedBudget === '10-15' ? '#000000' : '#F2A902',
 									borderRadius: 5,
-									width: 80,
+									width: 70,
 									marginRight: 10,
 								}}
 							/>
@@ -242,7 +239,7 @@ function Mood(props) {
 									backgroundColor:
 										selectedBudget === '15-20' ? '#000000' : '#C95615',
 									borderRadius: 5,
-									width: 80,
+									width: 70,
 									marginRight: 10,
 								}}
 							/>
@@ -256,7 +253,7 @@ function Mood(props) {
 									backgroundColor:
 										selectedBudget === '20+' ? '#000000' : '#DB1919',
 									borderRadius: 5,
-									width: 80,
+									width: 70,
 									marginRight: 10,
 								}}
 							/>
@@ -293,14 +290,14 @@ function Mood(props) {
 							backgroundColor: '#FFFFFF',
 							marginTop: 15,
 							flexDirection: 'row',
-							width: '90%',
+							width: '95%',
 							height: 60,
 							alignItems: 'center',
 							justifyContent: 'center',
 						}}
 					>
 						<Ionicons name="location-outline" size={24} color="#F2A902" />
-						<View style={{ display: 'flex', flexDirection: 'column' }}>
+						<View style={{ display: 'flex', flexDirection: 'column', width: '80%' }}>
 							<Text
 								style={{
 									color: '#000000',
@@ -392,7 +389,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		alignSelf: 'center',
-		// backgroundColor: '#FFFFFF',
 		borderRadius: 5,
 	},
 })

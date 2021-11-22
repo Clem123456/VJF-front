@@ -1,14 +1,6 @@
 import React from 'react'
-import {
-	StyleSheet,
-	View,
-	ScrollView,
-	TouchableOpacity,
-	ImageBackground,
-	Image,
-} from 'react-native'
-import { Text, Input, SocialIcon, Button } from 'react-native-elements'
-import TopBar from '../Components/TopBar'
+import { StyleSheet, View, TouchableOpacity, Image } from 'react-native'
+import { Text, Input, Button } from 'react-native-elements'
 import NextButton from '../Components/NextButton'
 import { connect } from 'react-redux'
 import { useState } from 'react'

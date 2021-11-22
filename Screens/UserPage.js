@@ -149,8 +149,8 @@ function UserPage(props) {
 const styles = StyleSheet.create({
 	container: {
 		borderRadius: 10,
-		elevation: 4,
-		shadowOffset: { width: 2, height: 2 },
+		elevation: 2,
+		shadowOffset: { width: 1, height: 1 },
 		shadowColor: 'rgba(0,0,0, 0.2)',
 		shadowOpacity: 0.5,
 		shadowRadius: 2,
