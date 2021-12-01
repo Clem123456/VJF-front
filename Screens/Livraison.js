@@ -1,14 +1,13 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
 import { Text } from 'react-native-elements'
-import TopBar from '../Components/TopBar'
 import { useState, useEffect } from 'react'
 import LottieView from 'lottie-react-native'
 import CountDown from 'react-native-countdown-component'
+import TopBar from '../Components/TopBar'
 
 function Livraison(props) {
 	const [start, setStart] = useState(true) //const use to start the delivery process
-	const [seconds, setSeconds] = useState(5) // const to set the number of seconds for setTimeout
 	const [commandRender, setCommandRender] = useState('') // wich screen need to be render (preparation..livraison..)
 
 	useEffect(() => {
@@ -26,9 +25,10 @@ function Livraison(props) {
 				display: 'flex',
 				alignItems: 'center',
 				marginLeft: 15,
+				fontWeight: 'bold',
 			}}
 		>
-			<Text style={{ textAlign: 'left', color: '#000000', marginTop: 50 }}>
+			<Text style={{ fontWeight: 'bold', textAlign: 'left', color: '#000000', marginTop: 50 }}>
 				Envoi de la commande au restaurant !
 			</Text>
 			<LottieView
@@ -47,9 +47,10 @@ function Livraison(props) {
 					flexDirection: 'row',
 					alignItems: 'center',
 					marginLeft: 15,
+					fontWeight: 'bold',
 				}}
 			>
-				<Text style={{ textAlign: 'left', color: '#000000', marginTop: 15 }}>
+				<Text style={{ fontWeight: 'bold', textAlign: 'left', color: '#000000', marginTop: 15 }}>
 					Commande validée{' '}
 				</Text>
 				<LottieView
@@ -65,7 +66,7 @@ function Livraison(props) {
 					alignItems: 'center',
 				}}
 			>
-				<Text style={{ textAlign: 'center', color: '#000000', marginTop: 15 }}>
+				<Text style={{ fontWeight: 'bold', textAlign: 'center', color: '#000000', marginTop: 15 }}>
 					Votre commande est en préparation !{' '}
 				</Text>
 				<LottieView
@@ -85,9 +86,10 @@ function Livraison(props) {
 					flexDirection: 'row',
 					alignItems: 'center',
 					marginLeft: 15,
+					fontWeight: 'bold',
 				}}
 			>
-				<Text style={{ textAlign: 'left', color: '#000000', marginTop: 15 }}>
+				<Text style={{ fontWeight: 'bold', textAlign: 'left', color: '#000000', marginTop: 15 }}>
 					Commande validée{' '}
 				</Text>
 				<LottieView
@@ -102,9 +104,10 @@ function Livraison(props) {
 					flexDirection: 'row',
 					alignItems: 'center',
 					marginLeft: 15,
+					fontWeight: 'bold',
 				}}
 			>
-				<Text style={{ textAlign: 'left', color: '#000000', marginTop: 15 }}>
+				<Text style={{ fontWeight: 'bold', textAlign: 'left', color: '#000000', marginTop: 15 }}>
 					Commande preparée
 				</Text>
 				<LottieView
@@ -119,6 +122,7 @@ function Livraison(props) {
 					color: '#000000',
 					marginTop: 15,
 					marginBottom: 15,
+					fontWeight: 'bold',
 				}}
 			>
 				Votre commande sera livrée dans:
@@ -142,7 +146,7 @@ function Livraison(props) {
 					marginLeft: 15,
 				}}
 			>
-				<Text style={{ textAlign: 'left', color: '#000000', marginTop: 15 }}>
+				<Text style={{ fontWeight: 'bold', textAlign: 'left', color: '#000000', marginTop: 15 }}>
 					Commande preparée
 				</Text>
 				<LottieView
@@ -159,7 +163,7 @@ function Livraison(props) {
 					marginLeft: 15,
 				}}
 			>
-				<Text style={{ textAlign: 'left', color: '#000000', marginTop: 15 }}>
+				<Text style={{ fontWeight: 'bold', textAlign: 'left', color: '#000000', marginTop: 15 }}>
 					Commande livrée
 				</Text>
 				<LottieView
@@ -169,7 +173,7 @@ function Livraison(props) {
 				/>
 			</View>
 			<View>
-				<Text style={{ textAlign: 'center', color: '#000000', marginTop: 40 }}>
+				<Text style={{ fontWeight: 'bold', textAlign: 'center', color: '#000000', marginTop: 40 }}>
 					Toc-Toc c'est la !
 				</Text>
 				<LottieView
@@ -185,41 +189,22 @@ function Livraison(props) {
 	var showscreen
 	if (commandRender == 'order') {
 		showscreen = order
-		if (seconds > 0) {
-			setTimeout(() => setSeconds(seconds - 1), 1000)
-		} else {
-			setCommandRender('preparation')
-			setSeconds(10)
-		}
+		setTimeout(() => setCommandRender('preparation'), 2500);
 	}
 
 	if (commandRender == 'preparation') {
 		showscreen = preparation
-		if (seconds > 0) {
-			setTimeout(() => setSeconds(seconds - 1), 1000)
-		} else {
-			setCommandRender('livraison')
-			setSeconds(10)
-		}
+		setTimeout(() => setCommandRender('livraison'), 2500);
 	}
 
 	if (commandRender == 'livraison') {
 		showscreen = livraison
-		if (seconds > 0) {
-			setTimeout(() => setSeconds(seconds - 1), 1000)
-		} else {
-			setCommandRender('done')
-			setSeconds(10)
-		}
+		setTimeout(() => setCommandRender('done'), 5000);
 	}
 
 	if (commandRender == 'done') {
 		showscreen = done
-		if (seconds > 0) {
-			setTimeout(() => setSeconds(seconds - 1), 1000)
-		} else {
-			props.navigation.navigate('FinalPage', { screen: 'FinalPage' })
-		}
+		setTimeout(() => props.navigation.navigate('FinalPage', { screen: 'FinalPage' }), 2500);
 	}
 
 	return (
@@ -229,7 +214,7 @@ function Livraison(props) {
 				<View style={{ marginLeft: 15, marginTop: 15 }}>
 					<Text
 						h3
-						style={{ textAlign: 'left', color: '#000000', marginTop: 15 }}
+						style={{ textAlign: 'left', color: '#F2A902', marginTop: 15 }}
 					>
 						Etapes:
 					</Text>
